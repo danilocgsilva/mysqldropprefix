@@ -94,7 +94,11 @@ mysqldropprefix () {
   fill_tables_infos
   shows_prefixed_tables
   confirm_remove
-  remove_prefixed_tables
+  if [ $1 = list_tables ]; then
+    list_tables
+  else
+    remove_prefixed_tables
+  fi
 }
 
 ## detect if being sourced and
